@@ -16,3 +16,8 @@ to separate the core domain from the application services, which are the service
 We put the core logic inside this module, this will include Entities, Value Objects and domain services.
 It's the most independent component including the business logic
 ![img_1.png](documents/assets/img_1.png)
+
+
+### Order state transitions
+
+![img.png](documents/assets/img_2.png)
