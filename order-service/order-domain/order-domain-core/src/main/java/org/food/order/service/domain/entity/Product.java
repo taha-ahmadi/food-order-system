@@ -5,6 +5,14 @@ import org.food.order.system.domain.valueobject.Money;
 import org.food.order.system.domain.valueobject.ProductId;
 
 public class Product extends BaseEntity<ProductId> {
+    public String getName() {
+        return name;
+    }
+
+    public Money getPrice() {
+        return price;
+    }
+
     private String name;
     private Money price;
 

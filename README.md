@@ -2,7 +2,6 @@
 ### Order service schema
 ![img.png](documents/assets/img.png)
 
-
 ## Project structure
 
 
