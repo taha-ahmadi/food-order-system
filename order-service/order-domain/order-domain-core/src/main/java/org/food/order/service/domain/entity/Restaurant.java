@@ -6,13 +6,23 @@ import org.food.order.system.domain.valueobject.RestaurantId;
 import java.util.List;
 
 public class Restaurant extends AggregateRoot<RestaurantId> {
+
+
     private final List<Product> products;
     private boolean isActive;
+
+    public List<Product> getProducts() {
+        return products;
+    }
 
     private Restaurant(Builder builder) {
         super.setId(builder.restaurantId);
         products = builder.products;
         isActive = builder.isActive;
+    }
+
+    public boolean isActive() {
+        return isActive;
     }
 
 
