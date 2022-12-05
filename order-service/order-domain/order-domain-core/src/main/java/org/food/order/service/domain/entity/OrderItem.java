@@ -1,26 +1,20 @@
 package org.food.order.service.domain.entity;
 
 import org.food.order.service.domain.valueobject.OrderItemId;
-import org.food.order.service.domain.valueobject.StreetAddress;
-import org.food.order.system.domain.entity.AggregateRoot;
 import org.food.order.system.domain.entity.BaseEntity;
-import org.food.order.system.domain.valueobject.CustomerId;
 import org.food.order.system.domain.valueobject.Money;
 import org.food.order.system.domain.valueobject.OrderId;
-import org.food.order.system.domain.valueobject.RestaurantId;
-
-import java.util.List;
 
 public class OrderItem extends BaseEntity<OrderItemId> {
     private OrderId orderId;
-    private final Product poduct;
+    private final Product product;
     private final Money price;
     private final Money subTotal;
     private final int quantity;
 
     private OrderItem(Builder builder) {
         super.setId(builder.orderItemId);
-        poduct = builder.product;
+        product = builder.product;
         price = builder.price;
         subTotal = builder.subTotal;
         quantity = builder.quantity;
@@ -32,7 +26,7 @@ public class OrderItem extends BaseEntity<OrderItemId> {
     }
 
     public Product getProduct() {
-        return poduct;
+        return product;
     }
 
     public Money getPrice() {
@@ -45,6 +39,16 @@ public class OrderItem extends BaseEntity<OrderItemId> {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    void initializeOrderItem(OrderId orderId, OrderItemId orderItemId) {
+        this.orderId = orderId;
+        super.setId(orderItemId);
+    }
+
+    boolean isPriceValid(){
+        return price.isGreaterThanZero() && price.equals(product.getPrice())
+                && price.multiply(quantity).equals(subTotal);
     }
 
     public static final class Builder {
