@@ -13,6 +13,9 @@ During this project, I wrote some articles about architectures and technologies 
 #### order-application
 this is the application sites that the end users communicate with.
 
+#### order-application
+we use framework abilities to make the development easier
+
 #### order-domain
 it's a parent module.
 
