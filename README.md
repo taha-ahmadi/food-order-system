@@ -10,6 +10,9 @@ During this project, I wrote some articles about architectures and technologies 
 ![img.png](documents/assets/img.png)
 
 
+### General Hexagonal architecture
+![img.png](documents/assets/img_4.png)
+
 #### order-application
 this is the application sites that the end users communicate with.
 
