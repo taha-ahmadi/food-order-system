@@ -6,7 +6,7 @@ import org.food.order.system.service.domain.dto.create.CreateOrderResponse;
 import org.food.order.system.service.domain.dto.track.TrackOrderQuery;
 import org.food.order.system.service.domain.dto.track.TrackOrderResponse;
 
-public interface  OrderApplicationService {
+public interface OrderApplicationServiceInterface {
 
     CreateOrderResponse createOrder(@Valid CreateOrderCommand createOrderCommand);
     TrackOrderResponse trackOrder(@Valid TrackOrderQuery trackOrderQuery);
