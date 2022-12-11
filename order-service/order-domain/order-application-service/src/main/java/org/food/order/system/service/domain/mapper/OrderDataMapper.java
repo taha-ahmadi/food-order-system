@@ -6,6 +6,7 @@ import org.food.order.service.domain.entity.OrderItem;
 import org.food.order.service.domain.entity.Product;
 import org.food.order.service.domain.entity.Restaurant;
 import org.food.order.service.domain.valueobject.StreetAddress;
+import org.food.order.service.domain.valueobject.TrackingId;
 import org.food.order.system.domain.valueobject.CustomerId;
 import org.food.order.system.domain.valueobject.Money;
 import org.food.order.system.domain.valueobject.ProductId;
@@ -13,6 +14,7 @@ import org.food.order.system.domain.valueobject.RestaurantId;
 import org.food.order.system.service.domain.dto.create.CreateOrderCommand;
 import org.food.order.system.service.domain.dto.create.CreateOrderResponse;
 import org.food.order.system.service.domain.dto.create.OrderAddress;
+import org.food.order.system.service.domain.dto.track.TrackOrderResponse;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -36,6 +38,14 @@ public class OrderDataMapper {
                 .deliveryAddress(orderAddressToStreetAddress(createOrderCommand.getAddress()))
                 .price(new Money(createOrderCommand.getPrice()))
                 .items(orderItemsToOrderItemEntities(createOrderCommand.getOrderItems()))
+                .build();
+    }
+
+    public TrackOrderResponse orderToTrackOrderResponse(Order order){
+        return TrackOrderResponse.builder()
+                .orderTrackingId(order.getTrackingId().getValue())
+                .orderStatus(order.getOrderStatus())
+                .failureMessages(order.getFailureMessages())
                 .build();
     }
 
